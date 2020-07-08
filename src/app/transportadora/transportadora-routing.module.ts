@@ -6,7 +6,11 @@ const routes: Routes = [
   {
     path: '',
     component: TransportadoraPage,
+  },  {
+    path: 'cadastro',
+    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
   }
+
 ];
 
 @NgModule({

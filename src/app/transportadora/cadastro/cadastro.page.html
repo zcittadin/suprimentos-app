@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-input [(ngModel)]=transportadora.nome placeholder="Nome"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]=transportadora.endereco placeholder="Endereço"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]=transportadora.telefone inputmode="tel" pattern="[0-9]*" placeholder="Telefone"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]=transportadora.qtdeEntregas inputmode="number" pattern="[0-9]*" placeholder="Quantidade"></ion-input>
+  </ion-item>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['./cadastro']">
+      <ion-icon name="save-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
