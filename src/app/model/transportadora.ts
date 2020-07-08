@@ -1,6 +1,6 @@
 export interface Transportadora {
   nome: string;
-  endereço: string;
+  endereco: string;
   telefone: string;
   dataCadastro: Date;
   qtdeEntregas: number;
