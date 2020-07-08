@@ -12,19 +12,19 @@ const routes: Routes = [
         loadChildren: () => import('../transportadora/transportadora.module').then(m => m.TransportadoraPageModule)
       },
       {
-        path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        path: 'entrega',
+        loadChildren: () => import('../entrega/entrega.module').then(m => m.EntregaPageModule)
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/transportadora',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/transportadora',
     pathMatch: 'full'
   }
 ];
