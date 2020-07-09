@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Transportadora } from '../model/transportadora';
+import { TransportadoraService } from '../services/transportadora.service';
 
 @Component({
   selector: 'app-transportadora',
@@ -8,16 +9,15 @@ import { Transportadora } from '../model/transportadora';
 })
 export class TransportadoraPage {
 
+  constructor(private transportadoraService: TransportadoraService) {}
+
   transportadoras: Transportadora[];
 
-  constructor() {
-    this.transportadoras = [
-      /*{dataCadastro: new Date(),endereco: 'dsadsd', nome: 'teste', qtdeEntregas: 2, telefone: '48998415545'},
-      {dataCadastro: new Date(),endereco: 'Rua foda', nome: 'teste 2', qtdeEntregas: 0, telefone: '35692582080'},*/
-    ]
+  get transportadoras() {
+    return this.transportadoraService.getTransportadoras();
   }
 
   removerTransportadora (transportadora:Transportadora) {
-    this.transportadoras = this.transportadoras.filter(t => t !== transportadora);
+    this.transportadoraService.removerTransportadora(transportadora);
   }
 }

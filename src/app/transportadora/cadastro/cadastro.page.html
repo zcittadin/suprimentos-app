@@ -22,7 +22,7 @@
   </ion-item>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button [routerLink]="['./cadastro']">
+    <ion-fab-button (click)=salvarTransportadora(transportadora)>
       <ion-icon name="save-sharp"></ion-icon>
     </ion-fab-button>
   </ion-fab>
