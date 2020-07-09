@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Transportadora } from '../model/transportadora';
 import { TransportadoraService } from '../services/transportadora.service';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-transportadora',
@@ -9,7 +11,7 @@ import { TransportadoraService } from '../services/transportadora.service';
 })
 export class TransportadoraPage {
 
-  constructor(private transportadoraService: TransportadoraService) {}
+  constructor(private transportadoraService: TransportadoraService, public navCtrl: NavController, public router: Router) {}
 
   transportadoras: Transportadora[];
 
