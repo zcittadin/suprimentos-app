@@ -6,14 +6,9 @@ import { Transportadora } from '../model/transportadora';
 })
 export class TransportadoraService {
 
-  transportadoras: Transportadora[];
+  transportadoras: Transportadora[] = [];
 
-  constructor() {
-    this.transportadoras = [
-      {id: parseInt((Math.random() * 1000).toFixed(0)), dataCadastro: new Date(),endereco: 'dsadsd', nome: 'teste', qtdeEntregas: 2, telefone: '48998415545'},
-      {id: parseInt((Math.random() * 1000).toFixed(0)), dataCadastro: new Date(),endereco: 'Rua foda', nome: 'teste 2', qtdeEntregas: 0, telefone: '35692582080'},
-    ]
-  }
+  constructor() {}
 
   adicionarTransportadora(transportadora:Transportadora) {
     this.transportadoras.push(transportadora);
