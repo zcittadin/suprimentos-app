@@ -6,9 +6,9 @@ import { Transportadora } from '../model/transportadora';
 })
 export class TransportadoraService {
 
-  transportadoras: Transportadora[] = [];
-
   constructor() {}
+
+  transportadoras: Transportadora[] = [];
 
   editarTransportadora(transportadora:Transportadora) {
     this.removerTransportadora(transportadora);

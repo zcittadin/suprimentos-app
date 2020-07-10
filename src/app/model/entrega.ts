@@ -1,6 +1,7 @@
 import { Transportadora } from './transportadora';
 
 export interface Entrega {
+  id: number;
   dataEntrega: Date;
   endereco: string;
   valor: number;
