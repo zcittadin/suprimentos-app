@@ -17,14 +17,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/transportadora',
+        redirectTo: '/tabs/entrega',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/transportadora',
+    redirectTo: '/tabs/entrega',
     pathMatch: 'full'
   }
 ];

@@ -17,12 +17,20 @@
     <ion-item-sliding *ngFor="let entrega of entregas">
     <ion-item>
       <ion-label>
-        <ion-text color="primary"><h2>Endereço: {{entrega.nome}}</h2></ion-text> 
+        <ion-text color="primary"><h2>Endereço: {{entrega.endereco}}</h2></ion-text> 
         <h3>Data: {{entrega.dataEntrega | date: 'dd/MM/yyyy' }}</h3>
-        <h3>Qtd. entregas: {{entrega.qtdeEntregas}}</h3>
-        <h3>Telefone: ({{ entrega.telefone | slice:0:2 }}) {{ entrega.telefone | slice:2:7 }}-{{ entrega.telefone | slice:7:11 }}</h3>
-        <h3>Endereço: {{ entrega.endereco}}</h3>
+        <h3>Valor: {{entrega.valor}}</h3>
+        <p>
+          <ion-text style="color: white;">Transportadora: </ion-text>
+          <ion-text color="primary">{{entrega.transportadora.nome}}</ion-text>
+        </p> 
       </ion-label>
+      <ion-item>
+        <ion-label *ngIf="!entrega.status" color="danger">Pendente</ion-label>
+        <ion-label *ngIf="entrega.status" color="success">Entregue</ion-label>
+        <ion-toggle slot="end" name="kiwi" color="success" [(ngModel)]=entrega.status></ion-toggle>
+      </ion-item>
+
     </ion-item>
 
     <ion-item-options side="start">

@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>Cadastro</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-back-button ></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -21,9 +21,13 @@
     <ion-input [(ngModel)]=entrega.valor inputmode="number" placeholder="Valor"></ion-input>
   </ion-item>
 
-  <ion-item button (click)="pickTransportadora()">
-    <ion-label *ngIf="!entrega.transportadora.id" color="medium">Transportadora</ion-label>
-    <ion-label *ngIf="entrega.transportadora.id" color="primary">{{entrega.transportadora.nome}}</ion-label>
+  <ion-item button>
+    <ion-label (click)="pickTransportadora()" *ngIf="!entrega.transportadora.id" color="medium">Transportadora</ion-label>
+    <ion-label (click)="pickTransportadora()" *ngIf="entrega.transportadora.id" color="primary">{{entrega.transportadora.nome}}</ion-label>
+    
+    <ion-item [routerLink]="['/../../tabs/transportadora/cadastro']">
+      <ion-icon color="primary" name="add-sharp"></ion-icon>
+    </ion-item>
   </ion-item>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">

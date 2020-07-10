@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Entrega } from 'src/app/model/entrega';
 import { EntregaService } from 'src/app/services/entrega.service';
 import { TransportadoraService } from 'src/app/services/transportadora.service';
-import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { PickerController } from "@ionic/angular";
 import { PickerOptions } from "@ionic/core";
@@ -18,8 +18,8 @@ export class CadastroPage implements OnInit {
 
   entrega: Entrega
 
-  constructor(private entregaService: EntregaService, private transportadoraService: TransportadoraService, public navCtrl: NavController, public router: ActivatedRoute, private pickerController: PickerController) {
-    this.entrega = {id: 0,endereco:'',dataEntrega: new Date(), status: true,valor:null,
+  constructor(private entregaService: EntregaService, private transportadoraService: TransportadoraService, private location: Location, public router: ActivatedRoute, private pickerController: PickerController) {
+    this.entrega = {id: 0,endereco:'',dataEntrega: new Date(), status: false,valor:null,
       transportadora: {id: 0,dataCadastro: new Date(),endereco:'',nome:'',qtdeEntregas:null,telefone:''}
     };
     if(this.router.snapshot.params.idEntrega) {
@@ -64,11 +64,11 @@ export class CadastroPage implements OnInit {
   salvarEntrega(entrega:Entrega) {
     if(entrega.id) {
       this.entregaService.editarEntrega(entrega);
-      this.navCtrl.pop();
+      this.location.back();
       return;
     }
     this.entrega.id = parseInt((Math.random() * 1000).toFixed(0));
     this.entregaService.adicionarEntrega(entrega);
-    this.navCtrl.pop();
+    this.location.back();
   }
 }
