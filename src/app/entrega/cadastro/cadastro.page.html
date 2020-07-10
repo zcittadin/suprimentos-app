@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-input [(ngModel)]=entrega.endereco placeholder="Endereço"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Data de entrega</ion-label>
+    <ion-datetime [(ngModel)]=entrega.dataEntrega displayFormat="DD/MM/YYYY"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]=entrega.valor inputmode="number" placeholder="Valor"></ion-input>
+  </ion-item>
+
+  <ion-item button (click)="pickTransportadora()">
+    <ion-label *ngIf="!entrega.transportadora.id" color="medium">Transportadora</ion-label>
+    <ion-label *ngIf="entrega.transportadora.id" color="primary">{{entrega.transportadora.nome}}</ion-label>
+  </ion-item>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)=salvarEntrega(entrega)>
+      <ion-icon name="save-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

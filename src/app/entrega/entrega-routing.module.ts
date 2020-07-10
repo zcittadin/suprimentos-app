@@ -6,7 +6,12 @@ const routes: Routes = [
   {
     path: '',
     component: EntregaPage,
+  },
+  {
+    path: 'cadastro',
+    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
   }
+
 ];
 
 @NgModule({

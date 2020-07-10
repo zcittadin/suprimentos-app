@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Entregas
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,37 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-list>
+    <ion-item-sliding *ngFor="let entrega of entregas">
+    <ion-item>
+      <ion-label>
+        <ion-text color="primary"><h2>Endereço: {{entrega.nome}}</h2></ion-text> 
+        <h3>Data: {{entrega.dataEntrega | date: 'dd/MM/yyyy' }}</h3>
+        <h3>Qtd. entregas: {{entrega.qtdeEntregas}}</h3>
+        <h3>Telefone: ({{ entrega.telefone | slice:0:2 }}) {{ entrega.telefone | slice:2:7 }}-{{ entrega.telefone | slice:7:11 }}</h3>
+        <h3>Endereço: {{ entrega.endereco}}</h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item-options side="start">
+      <ion-item-option color="primary"><ion-icon slot="icon-only" size="large" name="pencil" routerLink="./cadastro/{{entrega.id}}"></ion-icon></ion-item-option>
+    </ion-item-options>
+    
+    <ion-item-options side="end">
+      <ion-item-option color="danger"><ion-icon slot="icon-only" size="large" name="trash" (click)="removerEntrega(entrega)"></ion-icon></ion-item-option>
+    </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['./cadastro']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>

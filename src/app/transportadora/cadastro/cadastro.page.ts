@@ -14,7 +14,7 @@ export class CadastroPage implements OnInit {
   transportadora: Transportadora;
 
   constructor(private transportadoraService: TransportadoraService, public navCtrl: NavController, public router: ActivatedRoute) {
-    this.transportadora = {id: 0,dataCadastro: new Date(),endereco:'',nome:'',qtdeEntregas:0,telefone:''}
+    this.transportadora = {id: 0,dataCadastro: new Date(),endereco:'',nome:'',qtdeEntregas:null,telefone:''}
     if(this.router.snapshot.params.idTransportadora) {
       this.transportadora = this.transportadoraService.getTransportadora(this.router.snapshot.params.idTransportadora);
       return;
