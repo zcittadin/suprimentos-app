@@ -13,7 +13,7 @@ export class TransportadoraPage {
 
   constructor(private transportadoraService: TransportadoraService, public navCtrl: NavController, public router: Router) {}
 
-  transportadoras: Transportadora[];
+  _transportadoras: Transportadora[];
 
   get transportadoras() {
     return this.transportadoraService.getTransportadoras();

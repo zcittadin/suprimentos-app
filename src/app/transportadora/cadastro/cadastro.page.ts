@@ -21,9 +21,7 @@ export class CadastroPage implements OnInit {
     }
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   salvarTransportadora(transportadora:Transportadora) {
     if(transportadora.id) {
