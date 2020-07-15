@@ -19,7 +19,7 @@ export class CadastroPage implements OnInit {
   entrega: Entrega
 
   constructor(private entregaService: EntregaService, private transportadoraService: TransportadoraService, private location: Location, public router: ActivatedRoute, private pickerController: PickerController) {
-    this.entrega = {id: 0,endereco:'',dataEntrega: new Date(), status: false,valor:null,
+    this.entrega = {id: 0,endereco:'',dataEntrega: new Date().toISOString(), status: false,valor:null,
       transportadora: {id: 0,dataCadastro: new Date(),endereco:'',nome:'',qtdeEntregas:null,telefone:''}
     };
     if(this.router.snapshot.params.idEntrega) {
